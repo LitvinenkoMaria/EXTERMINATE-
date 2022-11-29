@@ -6,6 +6,7 @@ from pygame.draw import *
 from math import pi
 
 import pygame
+import time
 from pygame import draw
 
 
@@ -352,6 +353,8 @@ while not finished:
             textpos = text.get_rect(centerx=WIDTH/2, y=HEIGHT/2)
             screen.blit(text, textpos)
             score = 0
+            pygame.display.update()
+            time.sleep(2)
             finished = True
         for dalek in daleks:
             dalek.spawn_bomb()
