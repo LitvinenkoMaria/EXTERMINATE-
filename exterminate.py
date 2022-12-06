@@ -84,23 +84,23 @@ class Dalek:
 
 
     def move(self):
-        
+
         if self.y >= 50:
             self.vx = -self.vx
         else:
             self.vx = -self.vx
         self.x += self.vx
-        
+
         if self.y <= 70:
             self.vy = -self.vy
-        
+
         if self.y >= 500:
             self.vy = -self.vy
         self.y += self.vy
-        
-        
-        
-        
+
+
+
+
         """if self.y >= 50:
             self.vx = -self.vx
         else:
@@ -112,7 +112,7 @@ class Dalek:
             self.vy = -self.vy
         self.y += self.vy"""
 
-        
+
 
     def draw(self):
         """
@@ -121,8 +121,8 @@ class Dalek:
         arc(screen,LightSteelBlue1 ,
                 (self.x - 52, self.y - 10, 30, 30),
                 0, pi, 2)
-        line(screen,LightSteelBlue1 , 
-                 [self.x - 52, self.y + 5], 
+        line(screen,LightSteelBlue1 ,
+                 [self.x - 52, self.y + 5],
                  [self.x - 23, self.y + 5], 3)
         arc(screen,LightSteelBlue1 ,
                 (self.x - 50, self.y - 7, 22, 22),
@@ -136,7 +136,7 @@ class Dalek:
         arc(screen,LightSteelBlue1 ,
                 (self.x - 52, self.y - 10, 24, 30),
                 0, pi, 3)
-        line(screen,LightSteelBlue1 , [self.x - 35, self.y], [self.x, self.y], 2) 
+        line(screen,LightSteelBlue1 , [self.x - 35, self.y], [self.x, self.y], 2)
         arc(screen,LightSteelBlue3 ,
                 (self.x, self.y - 2, 7, 7),
                 0.5*pi, 1.5*pi, 10) #!
@@ -146,18 +146,18 @@ class Dalek:
         rect(screen, LightSteelBlue1 , (self.x - 52, self.y + 14, 30, 3))
         rect(screen, SlateGray4 , (self.x - 47, self.y + 17, 20, 4))
         rect(screen, LightSteelBlue1 , (self.x - 52, self.y + 20, 30, 3))
-        polygon(screen, LightSteelBlue3 , 
-                    [[self.x - 47, self.y + 24], [self.x - 27, self.y + 24], 
+        polygon(screen, LightSteelBlue3 ,
+                    [[self.x - 47, self.y + 24], [self.x - 27, self.y + 24],
                      [self.x - 10, self.y + 65], [self.x - 52, self.y + 65]])
         rect(screen,SlateGray4  , (self.x - 57, self.y + 65, 53, 12))
-        circle(screen,SlateGray4  , 
+        circle(screen,SlateGray4  ,
                    (self.x - 20, self.y + 35), 5)
         line(screen, LightSteelBlue1, [self.x - 15, self.y + 35],[self.x + 15, self.y + 35], 2)
         rect(screen, LightSteelBlue1, (self.x + 15, self.y + 31, 4, 7))
         rect(screen, LightSteelBlue1, (self.x - 57, self.y + 77, 52, 2))
-        circle(screen, SlateGray4, 
+        circle(screen, SlateGray4,
                    (self.x - 35, self.y + 41), 5)
-        circle(screen,SlateGray4, 
+        circle(screen,SlateGray4,
                    (self.x - 35, self.y + 55), 5)
 
     def spawn_bomb(self):
@@ -184,7 +184,12 @@ class Tardis:
         self.y = gun.y1
 
     def draw(self):
-        
+        """
+        Рисует Тардис
+        """
+
+
+
         my_font = pygame.font.SysFont('Comic Sans MS', 7)
         text = my_font.render('Police box', False, WHITE)
 
@@ -224,8 +229,8 @@ class Tardis:
 
         screen.blit(text, (self.x + 7, self.y + 4))
 
-        line(screen, BLACK, 
-                         [self.x + 25, self.y + 20], 
+        line(screen, BLACK,
+                         [self.x + 25, self.y + 20],
                          [self.x + 25, self.y + 85], 2)
 
 
@@ -299,12 +304,12 @@ def display_score():
 
 def display_results():
     """ Если бомба попала в тардис, останавливает игру и выводит соответствующую надпись."""
-    
-    polygon(screen, RED, [(tardis.x - 40, tardis.y), (tardis.x - 14, tardis.y - 14), (tardis.x, tardis.y - 40), (tardis.x + 14, tardis.y - 14), (tardis.x + 40, tardis.y), 
+
+    polygon(screen, RED, [(tardis.x - 40, tardis.y), (tardis.x - 14, tardis.y - 14), (tardis.x, tardis.y - 40), (tardis.x + 14, tardis.y - 14), (tardis.x + 40, tardis.y),
                              (tardis.x + 14, tardis.y + 14), (tardis.x, tardis.y + 40), (tardis.x - 14, tardis.y + 14)])
-    polygon(screen, YELLOW, [(tardis.x - 28, tardis.y + 28), (tardis.x - 10, tardis.y), (tardis.x - 28, tardis.y - 28), (tardis.x, tardis.y - 10), (tardis.x + 28, tardis.y - 28), 
+    polygon(screen, YELLOW, [(tardis.x - 28, tardis.y + 28), (tardis.x - 10, tardis.y), (tardis.x - 28, tardis.y - 28), (tardis.x, tardis.y - 10), (tardis.x + 28, tardis.y - 28),
                              (tardis.x + 10, tardis.y), (tardis.x + 28, tardis.y + 28), (tardis.x, tardis.y + 10)])
-    
+
     rect(screen, WHITE, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100))
     rect(screen, BLACK, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100), 2)
     font = pygame.font.SysFont('Verdana', 22)
@@ -339,6 +344,7 @@ while not finished:
         pygame.display.update()
     else:
         screen.fill(BLACK)
+        rect(screen, WHITE, ( 130, 5, 540, 595), 2)
         gun.move()
         tardis.pos_update()
         tardis.draw()
@@ -390,8 +396,8 @@ while not finished:
                     left_key_down = False
             if event.type == pygame.QUIT:
                 finished = True
-            
-            
+
+
 
 
 pygame.quit()
