@@ -60,21 +60,19 @@ class Gun:
         global up_key_down, down_key_down
         if up_key_down and self.y1 >= 30:
             self.y1 -= 10
-        if down_key_down and self.y1 <= 770:
+        if down_key_down and self.y1 <= 490:
             self.y1 += 10
-        if right_key_down and self.x1 >= 30:
+        if right_key_down and self.x1 <= 720:
             self.x1 += 10
-        if left_key_down and self.x1 <= 770 and self.x1 >= 150:
+        if left_key_down and self.x1 >= 150:
             self.x1 -= 10
 
-    
-    
 
 class Dalek:
-    """далек выпускает бомбы на тардис; далек может летать снизу вверх"""
+    """ далек выпускает бомбы на тардис; далек может летать снизу вверх"""
     def __init__(self):
         """
-        Конструктор класса Target_round.
+        Конструктор класса Dalek.
         """
         self.alive = True
         self.screen = pygame.Surface
