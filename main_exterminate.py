@@ -89,6 +89,8 @@ while not finished:
         pygame.display.update()
     else:
         screen.fill(BLACK)
+        space = pygame.image.load('SpaceBackGround.bmp')
+        screen.blit(space, (0,0))
         rect(screen, WHITE, (130, 5, 540, 595), 2)
         tardis.move()
         tardis.draw()
