@@ -26,6 +26,8 @@ class Tardis:
         my_font = pygame.font.SysFont('Comic Sans MS', 7)
         text = my_font.render('Police box', False, WHITE)
 
+
+
         rect(self.screen, BLUE, (self.x, self.y, 50, 88))
         rect(self.screen, BLACK, (self.x, self.y, 50, 88), 2)
 

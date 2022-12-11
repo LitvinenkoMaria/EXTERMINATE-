@@ -1,105 +1,98 @@
-from exterminate_colors import *
-from random import randint as rnd
-from random import choice
-from pygame.draw import *
 from math import pi
+from random import choice
+from random import randint as rnd
 
-import pygame
-import time
-from pygame import draw
+from pygame.draw import *
 
 from exterminate_bomb import Bomb
+from exterminate_colors import *
 
 WIDTH = 800
 
+
 class Dalek:
     """далек выпускает бомбы на тардис; далек может летать снизу вверх"""
-    def __init__(self, screen, bullets):
+
+    def __init__(self, screen, bullets, x_dalek):
         """
         Конструктор класса Dalek.
         """
         self.alive = True
         self.screen = screen
         self.bullets = bullets
-        self.x = 100
+        self.x = x_dalek
         self.y = rnd(70, 500)
         self.r = rnd(20, 40)
         self.vx = rnd(3, 5) * choice([-1, 1])
-        self.vy = rnd(7,9)
-
+        self.vy = rnd(7, 9)
 
     def move(self):
-        
+
         if self.y >= 50:
             self.vx = -self.vx
         else:
             self.vx = -self.vx
         self.x += self.vx
-        
+
         if self.y <= 70:
             self.vy = -self.vy
-        
+
         if self.y >= 500:
             self.vy = -self.vy
         self.y += self.vy
-        
-
-        
 
     def draw(self):
         """
         Рисует далеков.
         """
-        arc(self.screen,LightSteelBlue1 ,
-                (self.x - 52, self.y - 10, 30, 30),
-                0, pi, 2)
-        line(self.screen,LightSteelBlue1 , 
-                 [self.x - 52, self.y + 5], 
-                 [self.x - 23, self.y + 5], 3)
-        arc(self.screen,LightSteelBlue1 ,
-                (self.x - 50, self.y - 7, 22, 22),
-                0, pi, 21)
-        arc(self.screen,LightSteelBlue1 ,
-                (self.x - 52, self.y - 10, 28, 30),
-                0, pi, 2)
-        arc(self.screen,LightSteelBlue1 ,
-                (self.x - 52, self.y - 10, 26, 30),
-                0, pi, 3)
-        arc(self.screen,LightSteelBlue1 ,
-                (self.x - 52, self.y - 10, 24, 30),
-                0, pi, 3)
-        line(self.screen,LightSteelBlue1 , [self.x - 35, self.y], [self.x, self.y], 2) 
-        arc(self.screen,LightSteelBlue3 ,
-                (self.x, self.y - 2, 7, 7),
-                0.5*pi, 1.5*pi, 10) #!
-        rect(self.screen, SlateGray4 , (self.x - 47, self.y + 7, 20, 7))
-        rect(self.screen, LightSteelBlue1 , (self.x - 52, self.y + 14, 30, 3))
-        rect(self.screen, SlateGray4 , (self.x - 47, self.y + 7, 20, 7))
-        rect(self.screen, LightSteelBlue1 , (self.x - 52, self.y + 14, 30, 3))
-        rect(self.screen, SlateGray4 , (self.x - 47, self.y + 17, 20, 4))
-        rect(self.screen, LightSteelBlue1 , (self.x - 52, self.y + 20, 30, 3))
-        polygon(self.screen, LightSteelBlue3 , 
-                    [[self.x - 47, self.y + 24], [self.x - 27, self.y + 24], 
-                     [self.x - 10, self.y + 65], [self.x - 52, self.y + 65]])
-        rect(self.screen,SlateGray4  , (self.x - 57, self.y + 65, 53, 12))
-        circle(self.screen,SlateGray4  , 
-                   (self.x - 20, self.y + 35), 5)
-        line(self.screen, LightSteelBlue1, [self.x - 15, self.y + 35],[self.x + 15, self.y + 35], 2)
+        arc(self.screen, LightSteelBlue1,
+            (self.x - 52, self.y - 10, 30, 30),
+            0, pi, 2)
+        line(self.screen, LightSteelBlue1,
+             [self.x - 52, self.y + 5],
+             [self.x - 23, self.y + 5], 3)
+        arc(self.screen, LightSteelBlue1,
+            (self.x - 50, self.y - 7, 22, 22),
+            0, pi, 21)
+        arc(self.screen, LightSteelBlue1,
+            (self.x - 52, self.y - 10, 28, 30),
+            0, pi, 2)
+        arc(self.screen, LightSteelBlue1,
+            (self.x - 52, self.y - 10, 26, 30),
+            0, pi, 3)
+        arc(self.screen, LightSteelBlue1,
+            (self.x - 52, self.y - 10, 24, 30),
+            0, pi, 3)
+        line(self.screen, LightSteelBlue1, [self.x - 35, self.y], [self.x, self.y], 2)
+        arc(self.screen, LightSteelBlue3,
+            (self.x, self.y - 2, 7, 7),
+            0.5 * pi, 1.5 * pi, 10)  # !
+        rect(self.screen, SlateGray4, (self.x - 47, self.y + 7, 20, 7))
+        rect(self.screen, LightSteelBlue1, (self.x - 52, self.y + 14, 30, 3))
+        rect(self.screen, SlateGray4, (self.x - 47, self.y + 7, 20, 7))
+        rect(self.screen, LightSteelBlue1, (self.x - 52, self.y + 14, 30, 3))
+        rect(self.screen, SlateGray4, (self.x - 47, self.y + 17, 20, 4))
+        rect(self.screen, LightSteelBlue1, (self.x - 52, self.y + 20, 30, 3))
+        polygon(self.screen, LightSteelBlue3,
+                [[self.x - 47, self.y + 24], [self.x - 27, self.y + 24],
+                 [self.x - 10, self.y + 65], [self.x - 52, self.y + 65]])
+        rect(self.screen, SlateGray4, (self.x - 57, self.y + 65, 53, 12))
+        circle(self.screen, SlateGray4,
+               (self.x - 20, self.y + 35), 5)
+        line(self.screen, LightSteelBlue1, [self.x - 15, self.y + 35], [self.x + 15, self.y + 35], 2)
         rect(self.screen, LightSteelBlue1, (self.x + 15, self.y + 31, 4, 7))
         rect(self.screen, LightSteelBlue1, (self.x - 57, self.y + 77, 52, 2))
-        circle(self.screen, SlateGray4, 
-                   (self.x - 35, self.y + 41), 5)
-        circle(self.screen,SlateGray4, 
-                   (self.x - 35, self.y + 55), 5)
+        circle(self.screen, SlateGray4,
+               (self.x - 35, self.y + 41), 5)
+        circle(self.screen, SlateGray4,
+               (self.x - 35, self.y + 55), 5)
 
     def spawn_bomb(self, bombs):
         """
         Далек каждый тик (или как это называется?) может сбросить бомбу с вероятностью 3%.
         """
-        if not rnd(0,30):
+        if not rnd(0, 30):
             new_bomb = Bomb(self.screen, self.bullets)
             new_bomb.x = self.x
             new_bomb.y = self.y
             bombs.append(new_bomb)
-
-
