@@ -74,10 +74,12 @@ x_dalek = 750
 new_dalek()
 tel_x = random.randint(100, 500)
 tel_y = random.randint(100, 500)
-if abs(tel_x - tardis.x) <= 30:
+if abs(tardis.x - tel_x) <= 65:
     tel_x = 500 - tardis.x
-if abs(tel_y - tardis.y) <= 50:
+if abs(tardis.y - tel_y) <= 30:
     tel_y = 500 - tardis.y
+
+teleport = Teleport(screen, tel_x, tel_y)
 finished = False
 
 # первый уровень
@@ -97,17 +99,17 @@ while not finished:
         tardis.draw()
         display_score()
         if int(score) <= 0:
-
-            teleport = Teleport(screen, tel_x, tel_y)
             tel_image = pygame.image.load('portal5.jpg')
-            tel_image = pygame.transform.scale(tel_image, (90, 90))
+            tel_image = pygame.transform.scale(tel_image, (120, 120))
             tel_image.set_colorkey(BLACK)
             screen.blit(tel_image, (tel_x, tel_y))
+            tardis.draw()
             pygame.display.update()
+            print(tel_x, tel_y)
             print(tardis.x, tardis.y)
-            print(teleport.x, teleport.y)
+
             print()
-            if abs(tardis.x - teleport.x) <= 7 and abs(tardis.y - teleport.y) <= 20:
+            if (0 <= (tardis.x - teleport.x) <= 70) and (0 <= (tardis.y - teleport.y) <= 20):
                 rect(screen, WHITE, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100))
                 rect(screen, BLACK, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100), 2)
                 font = pygame.font.SysFont('Verdana', 22)
