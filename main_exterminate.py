@@ -5,8 +5,10 @@ from pygame.draw import *
 
 from exterminate_colors import *
 from exterminate_dalek import Dalek
+from exterminate_dalek2 import Dalek2
 from exterminate_tardis import Tardis
 from exterminate_teleport import Teleport
+
 
 FPS = 30
 WIDTH = 800
@@ -19,35 +21,22 @@ left_key_down = False
 right_key_down = False
 
 
-def new_dalek():
-    """ Инициализация нового далека. Добавление его в массив далеков."""
-    global targets
-    new_dalek = Dalek(screen, bullets, x_dalek)
-    daleks.append(new_dalek)
-
-
 def display_score():
     """ Отображает текущий счёт."""
     global score, all_time, level
     all_time += 0.03
+    font = pygame.font.SysFont('Comic Sans MS', 26)
+    text = font.render('LEVEL ' + str(int(level)) + '', False, WHITE)
+    textpos = text.get_rect(centerx=110, y=25)
+    screen.blit(text, textpos)
     if int(score) >= 1:
         score -= 0.03
-        font = pygame.font.SysFont('Comic Sans MS', 26)
-        text = font.render('LEVEL ' + str(int(level)) + '', False, WHITE)
-        textpos = text.get_rect(centerx = 110, y = 25)
-        screen.blit(text, textpos)
         text2 = font.render('Time till portal: ' + str(int(score)) + '', False, WHITE)
-        textpos2 = text2.get_rect(centerx = 110, y = 55)
-        screen.blit(text2, textpos2)
+
     else:
-        font = pygame.font.SysFont('Comic Sans MS', 26)
-        text = font.render('LEVEL ' + str(int(level)) + '', False, WHITE)
-        textpos = text.get_rect(centerx = 110, y = 25)
-        screen.blit(text, textpos)
-        font = pygame.font.SysFont('Comic Sans MS', 26)
         text2 = font.render('Run to the portal!', False, WHITE)
-        textpos2 = text2.get_rect(centerx = 110, y = 55)
-        screen.blit(text2, textpos2)
+    textpos2 = text2.get_rect(centerx=110, y=55)
+    screen.blit(text2, textpos2)
 
 
 def display_results():
@@ -73,13 +62,15 @@ pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 bullet_count = 0
 daleks = []
-bullets = []
-bombs = []
+
+bombs1 = []
+bombs2 = []
 x_dalek = 100
 clock = pygame.time.Clock()
 
 tardis = Tardis(screen)
-new_dalek()
+first_level_passed = False
+dalek1 = Dalek(screen, x_dalek)
 
 tel_x = random.randint(100, 500)
 tel_y = random.randint(100, 500)
@@ -90,7 +81,7 @@ if abs(tel_y - tardis.y) <= 30:
 
 teleport = Teleport(screen, tel_x, tel_y)
 finished = False
-first_level_passed = False
+
 score = 6
 all_time = 0
 
@@ -103,7 +94,6 @@ while not finished:
         display_results()
         pygame.display.update()
     else:
-        screen.fill(BLACK)
         space = pygame.image.load('SpaceBackGround.bmp')
         screen.blit(space, (0, 0))
         rect(screen, WHITE, (130, 5, 540, 595), 2)
@@ -131,17 +121,14 @@ while not finished:
                 pygame.display.update()
                 time.sleep(4)
                 finished = True
-        for dalek in daleks:
-            dalek.spawn_bomb(bombs)
-            dalek.move()
-            dalek.draw()
-        for bomb in bombs:
+        dalek1.spawn_bomb(bombs1)
+        dalek1.move()
+        dalek1.draw()
+        for bomb in bombs1:
             bomb.hit_tardis(tardis)
-            bomb.move()
+            bomb.move_right()
             bomb.draw()
-        for bullet in bullets:
-            bullet.aging()
-            bullet.draw()
+
         pygame.display.update()
 
         clock.tick(FPS)
@@ -182,7 +169,8 @@ level2 = False
 score = 6
 level += 1
 x_dalek = 750
-new_dalek()
+dalek2 = Dalek2(screen, x_dalek)
+
 while not level2 and first_level_passed:
     if not tardis.alive:
         for event in pygame.event.get():
@@ -218,17 +206,23 @@ while not level2 and first_level_passed:
                 pygame.display.update()
                 time.sleep(4)
                 level2 = True
-        for dalek in daleks:
-            dalek.spawn_bomb(bombs)
-            dalek.move()
-            dalek.draw()
-        for bomb in bombs:
+        dalek1.spawn_bomb(bombs1)
+        dalek1.move()
+        dalek1.draw()
+
+        dalek2.spawn_bomb(bombs2)
+        dalek2.move()
+        dalek2.draw()
+
+
+        for bomb in bombs1:
             bomb.hit_tardis(tardis)
-            bomb.move()
+            bomb.move_right()
             bomb.draw()
-        for bullet in bullets:
-            bullet.aging()
-            bullet.draw()
+        for bomb in bombs2:
+            bomb.hit_tardis(tardis)
+            bomb.move_left()
+            bomb.draw()
         pygame.display.update()
 
         clock.tick(FPS)
