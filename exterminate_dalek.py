@@ -34,7 +34,7 @@ class Dalek:
             self.vx = -self.vx
         self.x += self.vx
 
-        if self.y <= 70:
+        if self.y <= 120:
             self.vy = -self.vy
 
         if self.y >= 500:
