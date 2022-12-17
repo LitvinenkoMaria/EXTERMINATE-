@@ -7,7 +7,8 @@ WIDTH = 800
 class Bomb:
     def __init__(self, screen):
         """
-        Конструктор класса Bomb.
+        Задаем параметры бомбы: скорость, радиус, цвет;
+        Бомба рисуется на экране screen.
         """
         self.r = 10
         self.screen = screen
@@ -17,7 +18,7 @@ class Bomb:
     def move_right(self):
         """
         Нужно для ЛЕВОГО далека.
-        Двигается горизонтально вправо без ускорения.
+        Бомба двигается горизонтально вправо без ускорения.
         """
         global bombs1, WIDTH
         self.x += self.vx
@@ -25,7 +26,7 @@ class Bomb:
     def move_left(self):
         """
         Нужно для ПРАВОГО далека.
-        Двигается горизонтально влево без ускорения.
+        Бомба двигается горизонтально влево без ускорения.
         """
         global bombs2, WIDTH
         self.x -= self.vx
@@ -33,7 +34,7 @@ class Bomb:
 
     def draw(self):
         """
-        Рисует бомбу.
+        Рисует бомб на экране screen.
         """
         draw.circle(self.screen, self.color, (self.x, self.y), self.r, 0)
 
