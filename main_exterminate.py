@@ -1,6 +1,8 @@
 import time
 import random
 import pygame
+import sys
+
 from pygame.draw import *
 
 from exterminate_colors import *
@@ -95,13 +97,9 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
             tardis.draw()
             display_score(score, level)
             if int(score) <= 0:
-                tel_image = pygame.image.load('portal5.jpg')
-                tel_image = pygame.transform.scale(tel_image, (120, 120))
-                tel_image.set_colorkey(BLACK)
-                screen.blit(tel_image, (tel_x, tel_y))
+                teleport.draw(screen)
                 tardis.draw()
                 pygame.display.update()
-                print("ahaha")
                 if (0 <= (tardis.x - teleport.x) <= 70) and (0 <= (tardis.y - teleport.y) <= 20):
                     rect(screen, WHITE, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100))
                     rect(screen, BLACK, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100), 2)
@@ -113,7 +111,7 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
                     score = 0
                     first_level_passed = True
                     pygame.display.update()
-                    time.sleep(4)
+                    time.sleep(2)
                     finished = True
             for dalek in left_daleks:
                 dalek.spawn_bomb(bombs1)
@@ -156,15 +154,17 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
                         left_key_down = False
                 if event.type == pygame.QUIT:
                     finished = True
+                    pygame.quit()
+                    sys.exit()
+
 
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-
 bombs1 = []
 bombs2 = []
-clock = pygame.time.Clock()
-
 tardis = Tardis(screen)
+
+clock = pygame.time.Clock()
 
 tel_x = coordinates_teleport(tardis.x)
 tel_y = coordinates_teleport(tardis.y)
@@ -176,7 +176,9 @@ all_time = 0
 level_number = 2 #число уровней
 number_r_daleks = 0
 number_l_daleks = 1
+
 for level in range(level_number):
     new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, tel_y)
     number_l_daleks += level % 2
     number_r_daleks += (level + 1) % 2
+pygame.quit()
