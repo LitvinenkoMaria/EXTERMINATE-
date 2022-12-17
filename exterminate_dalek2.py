@@ -42,49 +42,50 @@ class Dalek2:
 
     def draw(self):
         """
-        Рисует далеков.
+        Рисует далека.
         """
+        k = 1  # коэффициент пропорциональности; если его менять, можно менять размер всего далека
         arc(self.screen, LightSteelBlue1,
-            (self.x - 52, self.y - 10, 30, 30),
-            0, pi, 2)
+            (self.x - round(52 * k), self.y - round(10 * k), round(30 * k), round(30 * k)),
+            0, pi, round(2 * k))
         line(self.screen, LightSteelBlue1,
-             [self.x - 52, self.y + 5],
-             [self.x - 23, self.y + 5], 3)
+             [self.x - round(52 * k), self.y + round(5 * k)],
+             [self.x - round(23 * k), self.y + round(5 * k)], round(3 * k))
         arc(self.screen, LightSteelBlue1,
-            (self.x - 50, self.y - 7, 22, 22),
-            0, pi, 21)
+            (self.x - round(50 * k), self.y - round(7 * k), round(22 * k), round(22 * k)),
+            0, pi, round(21 * k))
         arc(self.screen, LightSteelBlue1,
-            (self.x - 52, self.y - 10, 28, 30),
-            0, pi, 2)
+            (self.x - round(52 * k), self.y - round(10 * k), round(28 * k), round(30 * k)),
+            0, pi, round(2 * k))
         arc(self.screen, LightSteelBlue1,
-            (self.x - 52, self.y - 10, 26, 30),
-            0, pi, 3)
+            (self.x - round(52 * k), self.y - round(10 * k), round(26 * k), round(30 * k)),
+            0, pi, round(3 * k))
         arc(self.screen, LightSteelBlue1,
-            (self.x - 52, self.y - 10, 24, 30),
-            0, pi, 3)
-        line(self.screen, LightSteelBlue1, [self.x - 70, self.y], [self.x - 35, self.y], 2)
+            (self.x - round(52 * k), self.y - round(10 * k), round(24 * k), round(30 * k)),
+            0, pi, round(3 * k))
+        line(self.screen, LightSteelBlue1, [self.x - round(70 * k), self.y], [self.x - round(35 * k), self.y], round(2 * k))
         arc(self.screen, LightSteelBlue3,
-            (self.x - 75, self.y - 3, 7, 7),
-            1.5 * pi, 0 * pi, 10)  # !
-        rect(self.screen, SlateGray4, (self.x - 47, self.y + 7, 20, 7))
-        rect(self.screen, LightSteelBlue1, (self.x - 52, self.y + 14, 30, 3))
-        rect(self.screen, SlateGray4, (self.x - 47, self.y + 7, 20, 7))
-        rect(self.screen, LightSteelBlue1, (self.x - 52, self.y + 14, 30, 3))
-        rect(self.screen, SlateGray4, (self.x - 47, self.y + 17, 20, 4))
-        rect(self.screen, LightSteelBlue1, (self.x - 52, self.y + 20, 30, 3))
+            (self.x - round(75 * k), self.y - round(3 * k), round(7 * k), round(7 * k)),
+            1.5 * pi, 0 * pi, round(10 * k))
+        rect(self.screen, SlateGray4, (self.x - round(47 * k), self.y + round(7 * k), round(20 * k), round(7 * k)))
+        rect(self.screen, LightSteelBlue1, (self.x - round(52 * k), self.y + round(14 * k), round(30 * k), round(3 * k)))
+        rect(self.screen, SlateGray4, (self.x - round(47 * k), self.y + round(7 * k), round(20 * k), round(7 * k)))
+        rect(self.screen, LightSteelBlue1, (self.x - round(52 * k), self.y + round(14 * k), round(30 * k), round(3 * k)))
+        rect(self.screen, SlateGray4, (self.x - round(47 * k), self.y + round(17 * k), round(20 * k), round(4 * k)))
+        rect(self.screen, LightSteelBlue1, (self.x - round(52 * k), self.y + round(20 * k), round(30 * k), round(3 * k)))
         polygon(self.screen, LightSteelBlue3,
-                [[self.x - 27, self.y + 24], [self.x - 47, self.y + 24],
-                 [self.x - 65, self.y + 65], [self.x - 22, self.y + 65]])
-        rect(self.screen, SlateGray4, (self.x - 70, self.y + 65, 53, 12))
+                [[self.x - round(27 * k), self.y + round(24 * k)], [self.x - round(47 * k), self.y + round(24 * k)],
+                 [self.x - round(65 * k), self.y + round(65 * k)], [self.x - round(22 * k), self.y + round(65 * k)]])
+        rect(self.screen, SlateGray4, (self.x - round(70 * k), self.y + round(65 * k), round(53 * k), round(12 * k)))
         circle(self.screen, SlateGray4,
-               (self.x - 50, self.y + 35), 5)
-        line(self.screen, LightSteelBlue1, [self.x - 55, self.y + 35], [self.x - 80, self.y + 35], 2)
-        rect(self.screen, LightSteelBlue1, (self.x - 80, self.y + 31, 4, 7))
-        rect(self.screen, LightSteelBlue1, (self.x - 70, self.y + 77, 52, 2))
+               (self.x - round(50 * k), self.y + round(35 * k)), round(5 * k))
+        line(self.screen, LightSteelBlue1, [self.x - round(55 * k), self.y + round(35 * k)], [self.x - round(80 * k), self.y + round(35 * k)], round(2 * k))
+        rect(self.screen, LightSteelBlue1, (self.x - round(80 * k), self.y + round(31 * k), round(4 * k), round(7 * k)))
+        rect(self.screen, LightSteelBlue1, (self.x - round(70 * k), self.y + round(77 * k), round(52 * k), round(2 * k)))
         circle(self.screen, SlateGray4,
-               (self.x - 35, self.y + 41), 5)
+               (self.x - round(35 * k), self.y + round(41 * k)), round(5 * k))
         circle(self.screen, SlateGray4,
-               (self.x - 35, self.y + 55), 5)
+               (self.x - round(35 * k), self.y + round(55 * k)), round(5 * k))
 
     def spawn_bomb(self, bombs2):
         """
