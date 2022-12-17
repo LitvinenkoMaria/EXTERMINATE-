@@ -13,7 +13,6 @@ from exterminate_teleport import Teleport
 FPS = 30
 WIDTH = 800
 HEIGHT = 600
-level = 1
 
 up_key_down = False
 down_key_down = False
@@ -21,12 +20,12 @@ left_key_down = False
 right_key_down = False
 
 
-def display_score(score):
+def display_score(score, level):
     """ Отображает текущий счёт."""
-    global all_time, level
+    global all_time
     all_time += 0.03
     font = pygame.font.SysFont('Comic Sans MS', 26)
-    text = font.render('LEVEL ' + str(int(level)) + '', False, WHITE)
+    text = font.render('LEVEL ' + str(int(level + 1)) + '', False, WHITE)
     textpos = text.get_rect(centerx=110, y=25)
     screen.blit(text, textpos)
     if int(score) >= 1:
@@ -65,7 +64,7 @@ def coordinates_teleport(tard):
         tel = 500 - tard
     return tel
 
-def new_level(tardis, finished, number_l_daleks, number_r_daleks, tel_x, tel_y):
+def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, tel_y):
     """
     Новый уровень
     """
@@ -94,7 +93,7 @@ def new_level(tardis, finished, number_l_daleks, number_r_daleks, tel_x, tel_y):
             rect(screen, WHITE, (130, 5, 540, 595), 2)
             tardis.move()
             tardis.draw()
-            display_score(score)
+            display_score(score, level)
             if int(score) <= 0:
                 tel_image = pygame.image.load('portal5.jpg')
                 tel_image = pygame.transform.scale(tel_image, (120, 120))
@@ -177,7 +176,7 @@ all_time = 0
 level_number = 2 #число уровней
 number_r_daleks = 0
 number_l_daleks = 1
-for i in range(level_number):
-    new_level(tardis, finished, number_l_daleks, number_r_daleks, tel_x, tel_y)
-    number_l_daleks += i % 2
-    number_r_daleks += (i + 1) % 2
+for level in range(level_number):
+    new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, tel_y)
+    number_l_daleks += level % 2
+    number_r_daleks += (level + 1) % 2
