@@ -5,22 +5,25 @@ from exterminate_colors import *
 
 
 class Tardis:
+    """
+    Tardis летает и пытается выжить.
+    """
     def __init__(self, screen):
         """
-        Конструктор класса Tardis. Летает и пытается выжить.
+        задаем координаты, состояние (alive) у тардис;
+        тардис рисуем на экране screen.
         """
+
         self.alive = True
         self.screen = screen
-        self.r = 15
         self.x = 330
         self.y = 370
 
     def draw(self):
         """
-        Рисует Тардис
+        Рисует Тардис на экране screen
         """
-        k = 1
-        """коэффициент пропорциональности; если его менять, можно менять размер всей Тардис"""
+        k = 1 #коэффициент пропорциональности; если его менять, можно менять размер всей Тардис
 
         my_font = pygame.font.SysFont('Comic Sans MS', round(7 * k))
         text = my_font.render('Police box', False, WHITE)

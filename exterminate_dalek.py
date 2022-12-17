@@ -2,12 +2,10 @@ from math import pi
 from random import choice
 from random import randint as rnd
 
-from pygame.draw import *
+from pygame.draw import arc, line, rect, polygon, circle
 
 from exterminate_bomb import Bomb
 from exterminate_colors import *
-
-
 
 
 class Dalek:
@@ -15,13 +13,13 @@ class Dalek:
 
     def __init__(self, screen, x_dalek):
         """
-        Конструктор класса Dalek.
+        Задаем координату y далека, координата x_dalek - константа;
+        задаем скорость vx, vy далека;
+        Далек рисуется на экране screen.
         """
-        self.alive = True
         self.screen = screen
         self.x = x_dalek
         self.y = rnd(69, 500)
-        self.r = rnd(20, 40)
         self.vx = rnd(3, 5) * choice([-1, 1])
         self.vy = rnd(7, 9)
 
@@ -43,7 +41,7 @@ class Dalek:
 
     def draw(self):
         """
-        Рисует далека.
+        Рисует далека на экране screen.
         """
         k = 1 #коэффициент пропорциональности; если его менять, можно менять размер всего далека
         arc(self.screen, LightSteelBlue1,
@@ -90,7 +88,8 @@ class Dalek:
 
     def spawn_bomb(self, bombs1):
         """
-        Далек каждый тик (или как это называется?) может сбросить бомбу с вероятностью 3%.
+        Далек каждый тик может сбросить бомбу с вероятностью примерно 3%
+        bombs1 - массив, в котором будут содержаться все бомбы, выпускаемые далеком.
         """
         if not rnd(0, 30):
             new_bomb = Bomb(self.screen)
