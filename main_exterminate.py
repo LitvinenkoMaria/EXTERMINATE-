@@ -86,6 +86,7 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     finished = True
+                    sys.exit()
             display_results()
             pygame.display.update()
         else:
@@ -111,14 +112,14 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
                     score = 0
                     first_level_passed = True
                     pygame.display.update()
-                    time.sleep(2)
+                    time.sleep(1)
                     finished = True
             for dalek in left_daleks:
-                dalek.spawn_bomb(bombs1)
+                dalek.spawn_bomb(score, bombs1)
                 dalek.move()
                 dalek.draw()
             for dalek in right_daleks:
-                dalek.spawn_bomb(bombs2)
+                dalek.spawn_bomb(score, bombs2)
                 dalek.move()
                 dalek.draw()
             for bomb in bombs1:
@@ -173,7 +174,7 @@ finished = False
 
 all_time = 0
 
-level_number = 2 #число уровней
+level_number = 5 #число уровней
 number_r_daleks = 0
 number_l_daleks = 1
 

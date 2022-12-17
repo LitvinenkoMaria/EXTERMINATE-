@@ -88,13 +88,14 @@ class Dalek2:
         circle(self.screen, SlateGray4,
                (self.x - round(35 * k), self.y + round(55 * k)), round(5 * k))
 
-    def spawn_bomb(self, bombs2):
+    def spawn_bomb(self, score, bombs2):
         """
         Далек каждый тик может сбросить бомбу с вероятностью примерно 3%
         bombs2 - массив, в котором будут содержаться все бомбы, выпускаемые далеком.
         """
-        if not rnd(0, 30):
-            new_bomb = Bomb(self.screen)
-            new_bomb.x = self.x
-            new_bomb.y = self.y
-            bombs2.append(new_bomb)
+        if not rnd(0, 100):
+            if score < 5:
+                new_bomb = Bomb(self.screen)
+                new_bomb.x = self.x
+                new_bomb.y = self.y
+                bombs2.append(new_bomb)
