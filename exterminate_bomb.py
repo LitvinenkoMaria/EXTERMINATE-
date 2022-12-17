@@ -32,15 +32,16 @@ class Bomb:
         self.x -= self.vx
 
 
-    def draw(self):
+    def draw(self, score):
         """
         Рисует бомб на экране screen.
         """
-        draw.circle(self.screen, self.color, (self.x, self.y), self.r, 0)
+        if score <= 5:
+            draw.circle(self.screen, self.color, (self.x, self.y), self.r, 0)
 
-    def hit_tardis(self, obj):
+    def hit_tardis(self, score, obj):
         """
         Проверяет, столкнулась ли бомба с тардис.
         """
-        if abs(self.x - obj.x) < 14 and (obj.y <= self.y and (obj.y + 95) >= self.y):
+        if score <= 5 and abs(self.x - obj.x) < 14 and (obj.y <= self.y and (obj.y + 95) >= self.y):
             obj.alive = False

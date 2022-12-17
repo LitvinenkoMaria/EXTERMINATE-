@@ -123,13 +123,13 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
                 dalek.move()
                 dalek.draw()
             for bomb in bombs1:
-                bomb.hit_tardis(tardis)
+                bomb.hit_tardis(score, tardis)
                 bomb.move_right()
-                bomb.draw()
+                bomb.draw(score)
             for bomb in bombs2:
-                bomb.hit_tardis(tardis)
+                bomb.hit_tardis(score, tardis)
                 bomb.move_left()
-                bomb.draw()
+                bomb.draw(score)
             pygame.display.update()
 
             clock.tick(FPS)
