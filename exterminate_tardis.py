@@ -19,50 +19,54 @@ class Tardis:
         """
         Рисует Тардис
         """
-        my_font = pygame.font.SysFont('Comic Sans MS', 7)
+
+        k = 1
+        """коэффициент пропорциональности; если его менять, можно менять размер всей Тардис"""
+
+        my_font = pygame.font.SysFont('Comic Sans MS', round(7 * k))
         text = my_font.render('Police box', False, WHITE)
 
 
 
-        rect(self.screen, BLUE, (self.x, self.y, 50, 88))
-        rect(self.screen, BLACK, (self.x, self.y, 50, 88), 2)
+        rect(self.screen, BLUE, (self.x, self.y, round(50 * k), round(88 * k)))
+        rect(self.screen, BLACK, (self.x, self.y, round(50 * k), round(88 * k)), round(2 * k))
 
-        rect(self.screen, BLUE, (self.x + 7, self.y - 9, 35, 10))
-        rect(self.screen, BLACK, (self.x + 7, self.y - 9, 35, 10), 2)
+        rect(self.screen, BLUE, (self.x + round(7 * k), self.y - round(9 * k), round(35 * k), round(10 * k)))
+        rect(self.screen, BLACK, (self.x + round(7 * k), self.y - round(9 * k), round(35 * k), round(10 * k)), round(2 * k))
 
-        rect(self.screen, GREY, (self.x + 10, self.y + 25, 10, 10))
-        rect(self.screen, BLACK, (self.x + 10, self.y + 25, 10, 10), 2)
+        rect(self.screen, GREY, (self.x + round(10 * k), self.y + round(25 * k), round(10 * k), round(10 * k)))
+        rect(self.screen, BLACK, (self.x + round(10 * k), self.y + round(25 * k), round(10 * k), round(10 * k)), round(2 * k))
 
-        rect(self.screen, GREY, (self.x + 30, self.y + 25, 10, 10))
-        rect(self.screen, BLACK, (self.x + 30, self.y + 25, 10, 10), 2)
+        rect(self.screen, GREY, (self.x + round(30 * k), self.y + round(25 * k), round(10 * k), round(10 * k)))
+        rect(self.screen, BLACK, (self.x + round(30 * k), self.y + round(25 * k), round(10 * k), round(10 * k)), round(2 * k))
 
-        rect(self.screen, BLUE, (self.x - 5, self.y + 85, 60, 10))
-        rect(self.screen, BLACK, (self.x - 5, self.y + 85, 60, 10), 2)
+        rect(self.screen, BLUE, (self.x - round(5 * k), self.y + round(85 * k), round(60 * k), round(10 * k)))
+        rect(self.screen, BLACK, (self.x - round(5 * k), self.y + round(85 * k), round(60 * k), round(10 * k)), round(2 * k))
 
-        rect(self.screen, BLACK, (self.x + 30, self.y + 40, 10, 10), 2)
+        rect(self.screen, BLACK, (self.x + round(30 * k), self.y + round(40 * k), round(10 * k), round(10 * k)), round(2 * k))
 
-        rect(self.screen, BLACK, (self.x + 10, self.y + 40, 10, 10), 2)
+        rect(self.screen, BLACK, (self.x + round(10 * k), self.y + round(40 * k), round(10 * k), round(10 * k)), round(2 * k))
 
-        rect(self.screen, BLACK, (self.x + 30, self.y + 55, 10, 10), 2)
+        rect(self.screen, BLACK, (self.x + round(30 * k), self.y + round(55 * k), round(10 * k), round(10 * k)), round(2 * k))
 
-        rect(self.screen, BLACK, (self.x + 10, self.y + 55, 10, 10), 2)
+        rect(self.screen, BLACK, (self.x + round(10 * k), self.y + round(55 * k), round(10 * k), round(10 * k)), round(2 * k))
 
-        rect(self.screen, BLACK, (self.x + 30, self.y + 70, 10, 10), 2)
+        rect(self.screen, BLACK, (self.x + round(30 * k), self.y + round(70 * k), round(10 * k), round(10 * k)), round(2 * k))
 
-        rect(self.screen, BLACK, (self.x + 10, self.y + 70, 10, 10), 2)
+        rect(self.screen, BLACK, (self.x + round(10 * k), self.y + round(70 * k), round(10 * k), round(10 * k)), round(2 * k))
 
-        rect(self.screen, BLACK, (self.x + 5, self.y + 20, 40, 65), 2)
+        rect(self.screen, BLACK, (self.x + round(5 * k), self.y + round(20 * k), round(40 * k), round(65 * k)), round(2 * k))
 
-        rect(self.screen, BLACK, (self.x + 5, self.y + 5, 40, 10))
+        rect(self.screen, BLACK, (self.x + round(5 * k), self.y + round(5 * k), round(40 * k), round(10 * k)))
 
-        rect(self.screen, YELLOW, (self.x + 22, self.y - 13, 5, 5))
-        rect(self.screen, BLACK, (self.x + 22, self.y - 13, 5, 5), 1)
+        rect(self.screen, YELLOW, (self.x + round(22 * k), self.y - round(13 * k), round(5 * k), round(5 * k)))
+        rect(self.screen, BLACK, (self.x + round(22 * k), self.y - round(13 * k), round(5 * k), round(5 * k)), round(1 * k))
 
-        self.screen.blit(text, (self.x + 7, self.y + 4))
+        self.screen.blit(text, (self.x + round(7 * k), self.y + round(4 * k)))
 
         line(self.screen, BLACK,
-             [self.x + 25, self.y + 20],
-             [self.x + 25, self.y + 85], 2)
+             [self.x + round(25 * k), self.y + round(20 * k)],
+             [self.x + round(25 * k), self.y + round(85 * k)], round(2 * k))
 
     def move(self):
         """.
