@@ -2,27 +2,34 @@ from pygame import draw
 
 from exterminate_colors import *
 
+WIDTH = 800
 
 class Bomb:
-    def __init__(self, screen, bullets):
+    def __init__(self, screen):
         """
         Конструктор класса Bomb.
         """
         self.r = 10
         self.screen = screen
-        self.bullets = bullets
         self.vx = 15
         self.color = WHITE
 
-    def move(self):
+    def move_right(self):
         """
+        Нужно для ЛЕВОГО далека.
         Двигается горизонтально вправо без ускорения.
-        Если достигла правой границы, удаляется из массива.
         """
-        global bombs, WIDTH
+        global bombs1, WIDTH
         self.x += self.vx
-        if len(self.bullets) > 0 and self.x >= WIDTH:
-            bombs.remove(self)
+
+    def move_left(self):
+        """
+        Нужно для ПРАВОГО далека.
+        Двигается горизонтально влево без ускорения.
+        """
+        global bombs2, WIDTH
+        self.x -= self.vx
+
 
     def draw(self):
         """
