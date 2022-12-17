@@ -1,11 +1,7 @@
-from exterminate_colors import *
-
-from pygame.draw import *
-from math import pi
-
 import pygame
-import time
-from pygame import draw
+from pygame.draw import *
+
+from exterminate_colors import *
 
 
 class Tardis:
@@ -74,10 +70,10 @@ class Tardis:
         """
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP] and self.y >= 30:
-            self.y -= 10
+            self.y -= 15
         if keys[pygame.K_DOWN] and self.y <= 490:
-            self.y += 10
+            self.y += 15
         if keys[pygame.K_RIGHT] and self.x <= 600:
-            self.x += 10
+            self.x += 15
         if keys[pygame.K_LEFT] and self.x >= 150:
-            self.x -= 10
+            self.x -= 15

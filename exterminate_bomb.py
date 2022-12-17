@@ -1,10 +1,7 @@
-from exterminate_colors import *
-from pygame.draw import *
-from math import pi
-
-import pygame
-import time
 from pygame import draw
+
+from exterminate_colors import *
+
 
 class Bomb:
     def __init__(self, screen, bullets):
@@ -39,4 +36,3 @@ class Bomb:
         """
         if abs(self.x - obj.x) < 14 and (obj.y <= self.y and (obj.y + 95) >= self.y):
             obj.alive = False
-
