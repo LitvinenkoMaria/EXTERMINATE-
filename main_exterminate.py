@@ -42,13 +42,10 @@ def display_score(score, level):
 def display_results():
     """ Если бомба попала в тардис, останавливает игру и выводит соответствующую надпись."""
 
-    polygon(screen, RED, [(tardis.x - 40, tardis.y), (tardis.x - 14, tardis.y - 14), (tardis.x, tardis.y - 40),
-                          (tardis.x + 14, tardis.y - 14), (tardis.x + 40, tardis.y),
-                          (tardis.x + 14, tardis.y + 14), (tardis.x, tardis.y + 40), (tardis.x - 14, tardis.y + 14)])
-    polygon(screen, YELLOW, [(tardis.x - 28, tardis.y + 28), (tardis.x - 10, tardis.y), (tardis.x - 28, tardis.y - 28),
-                             (tardis.x, tardis.y - 10), (tardis.x + 28, tardis.y - 28),
-                             (tardis.x + 10, tardis.y), (tardis.x + 28, tardis.y + 28), (tardis.x, tardis.y + 10)])
-
+    size_bang = 160 #размер картинки
+    bang = pygame.image.load("blow_up.png")
+    bang = pygame.transform.scale(bang, (size_bang, size_bang))
+    screen.blit(bang, (tardis.x - 25, tardis.y - 35))
     rect(screen, WHITE, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100))
     rect(screen, BLACK, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100), 2)
     font = pygame.font.SysFont('Verdana', 22)
@@ -56,7 +53,6 @@ def display_results():
                        (10, 10, 10))
     textpos = text.get_rect(centerx=WIDTH / 2, y=HEIGHT / 2)
     screen.blit(text, textpos)
-
 def coordinates_teleport(tard):
     """
     Координаты портала задаем взависимости от того, где находится тардис
@@ -70,7 +66,7 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
     """
     Новый уровень
     """
-    score = 6
+    score = 8
     left_daleks = []
     right_daleks = []
     x_left_dalek = 100
@@ -183,3 +179,4 @@ for level in range(level_number):
     number_l_daleks += level % 2
     number_r_daleks += (level + 1) % 2
 pygame.quit()
+
