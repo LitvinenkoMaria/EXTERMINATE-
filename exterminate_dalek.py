@@ -47,46 +47,46 @@ class Dalek:
         """
         k = 1 #коэффициент пропорциональности; если его менять, можно менять размер всего далека
         arc(self.screen, LightSteelBlue1,
-            (self.x - 52 * k, self.y - 10 * k, 30 * k, 30 * k),
-            0, pi, 2 * k)
+            (self.x - round(52 * k), self.y - round(10 * k), round(30 * k), round(30 * k)),
+            0, pi, round(2 * k))
         line(self.screen, LightSteelBlue1,
-             [self.x - 52 * k, self.y + 5 * k],
-             [self.x - 23 * k, self.y + 5 * k], 3 * k)
+             [self.x - round(52 * k), self.y + round(5 * k)],
+             [self.x - round(23 * k), self.y + round(5 * k)], round(3 * k))
         arc(self.screen, LightSteelBlue1,
-            (self.x - 50 * k, self.y - 7 * k, 22 * k, 22 * k),
-            0, pi, 21)
+            (self.x - round(50 * k), self.y - round(7 * k), round(22 * k), round(22 * k)),
+            0, pi, round(21 * k))
         arc(self.screen, LightSteelBlue1,
-            (self.x - 52 * k, self.y - 10 * k, 28 * k, 30 * k),
-            0, pi, 2 * k)
+            (self.x - round(52 * k), self.y - round(10 * k), round(28 * k), round(30 * k)),
+            0, pi, round(2 * k))
         arc(self.screen, LightSteelBlue1,
-            (self.x - 52 * k, self.y - 10 * k, 26 * k, 30 * k),
-            0, pi, 3 * k)
+            (self.x - round(52 * k), self.y - round(10 * k), round(26 * k), round(30 * k)),
+            0, pi, round(3 * k))
         arc(self.screen, LightSteelBlue1,
-            (self.x - 52 * k, self.y - 10 * k, 24 * k, 30 * k),
-            0, pi, 3 * k)
-        line(self.screen, LightSteelBlue1, [self.x - 35 * k, self.y], [self.x, self.y], 2 * k)
+            (self.x - round(52 * k), self.y - round(10 * k), round(24 * k), round(30 * k)),
+            0, pi, round(3 * k))
+        line(self.screen, LightSteelBlue1, [self.x - round(35 * k), self.y], [self.x, self.y], round(2 * k))
         arc(self.screen, LightSteelBlue3,
-            (self.x, self.y - 2 * k, 7 * k, 7 * k),
-            0.5 * pi, 1.5 * pi, 10 * k)  # !
-        rect(self.screen, SlateGray4, (self.x - 47 * k, self.y + 7 * k, 20 * k, 7 * k))
-        rect(self.screen, LightSteelBlue1, (self.x - 52 * k, self.y + 14 * k, 30 * k, 3 * k))
-        rect(self.screen, SlateGray4, (self.x - 47 * k, self.y + 7 * k, 20 * k, 7 * k))
-        rect(self.screen, LightSteelBlue1, (self.x - 52 * k, self.y + 14 * k, 30 * k, 3 * k))
-        rect(self.screen, SlateGray4, (self.x - 47 * k, self.y + 17 * k, 20 * k, 4 * k))
-        rect(self.screen, LightSteelBlue1, (self.x - 52 * k, self.y + 20 * k, 30 * k, 3 * k))
+            (self.x, self.y - round(2 * k), round(7 * k), round(7 * k)),
+            0.5 * pi, 1.5 * pi, round(10 * k))
+        rect(self.screen, SlateGray4, (self.x - round(47 * k), self.y + round(7 * k), round(20 * k), round(7 * k)))
+        rect(self.screen, LightSteelBlue1, (self.x - round(52 * k), self.y + round(14 * k), round(30 * k), round(3 * k)))
+        rect(self.screen, SlateGray4, (self.x - round(47 * k), self.y + round(7 * k), round(20 * k), round(7 * k)))
+        rect(self.screen, LightSteelBlue1, (self.x - round(52 * k), self.y + round(14 * k), round(30 * k), round(3 * k)))
+        rect(self.screen, SlateGray4, (self.x - round(47 * k), self.y + round(17 * k), round(20 * k), round(4 * k)))
+        rect(self.screen, LightSteelBlue1, (self.x - round(52 * k), self.y + round(20 * k), round(30 * k), round(3 * k)))
         polygon(self.screen, LightSteelBlue3,
-                [[self.x - 47 * k, self.y + 24 * k], [self.x - 27 * k, self.y + 24 * k],
-                 [self.x - 10 * k, self.y + 65 * k], [self.x - 52 * k, self.y + 65 * k]])
-        rect(self.screen, SlateGray4, (self.x - 57 * k, self.y + 65 * k, 53 * k, 12 * k))
+                [[self.x - round(47 * k), self.y + round(24 * k)], [self.x - round(27 * k), self.y + round(24 * k)],
+                 [self.x - round(10 * k), self.y + round(65 * k)], [self.x - round(52 * k), self.y + round(65 * k)]])
+        rect(self.screen, SlateGray4, (self.x - round(57 * k), self.y + round(65 * k), round(53 * k), round(12 * k)))
         circle(self.screen, SlateGray4,
-               (self.x - 20 * k, self.y + 35 * k), 5 * k)
-        line(self.screen, LightSteelBlue1, [self.x - 15 * k, self.y + 35 * k], [self.x + 15 * k, self.y + 35 * k], 2 * k)
-        rect(self.screen, LightSteelBlue1, (self.x + 15 * k, self.y + 31 * k, 4 * k, 7 * k))
-        rect(self.screen, LightSteelBlue1, (self.x - 57 * k, self.y + 77 * k, 52 * k, 2 * k))
+               (self.x - round(20 * k), self.y + round(35 * k)), round(5 * k))
+        line(self.screen, LightSteelBlue1, [self.x - round(15 * k), self.y + round(35 * k)], [self.x + round(15 * k), self.y + round(35 * k)], round(2 * k))
+        rect(self.screen, LightSteelBlue1, (self.x + round(15 * k), self.y + round(31 * k), round(4 * k), round(7 * k)))
+        rect(self.screen, LightSteelBlue1, (self.x - round(57 * k), self.y + round(77 * k), round(52 * k), round(2 * k)))
         circle(self.screen, SlateGray4,
-               (self.x - 35 * k, self.y + 41 * k), 5 * k)
+               (self.x - round(35 * k), self.y + round(41 * k)), round(5 * k))
         circle(self.screen, SlateGray4,
-               (self.x - 35 * k, self.y + 55 * k), 5 * k)
+               (self.x - round(35 * k), self.y + round(55 * k)), round(5 * k))
 
     def spawn_bomb(self, bombs1):
         """

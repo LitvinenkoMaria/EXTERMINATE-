@@ -19,14 +19,11 @@ class Tardis:
         """
         Рисует Тардис
         """
-
         k = 1
         """коэффициент пропорциональности; если его менять, можно менять размер всей Тардис"""
 
         my_font = pygame.font.SysFont('Comic Sans MS', round(7 * k))
         text = my_font.render('Police box', False, WHITE)
-
-
 
         rect(self.screen, BLUE, (self.x, self.y, round(50 * k), round(88 * k)))
         rect(self.screen, BLACK, (self.x, self.y, round(50 * k), round(88 * k)), round(2 * k))
