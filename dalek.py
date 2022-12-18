@@ -1,3 +1,5 @@
+import pygame
+
 from math import pi
 from random import choice
 from random import randint as rnd
@@ -92,6 +94,8 @@ class Dalek:
         bombs1 - массив, в котором будут содержаться все бомбы, выпускаемые далеком.
         """
         if not rnd(0, 50):
+            sound1 = pygame.mixer.Sound('piu.wav')
+            sound1.play()
             new_bomb = Bomb(self.screen)
             new_bomb.x = self.x
             new_bomb.y = self.y

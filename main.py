@@ -105,6 +105,8 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks):
             tardis.draw(scale_tardis)
             display_score(score, level)
             if int(score) <= 0:
+                sound = pygame.mixer.Sound('portal.wav')
+                sound.play()
                 teleport.draw(scale_tardis, screen)
                 tardis.draw(scale_tardis)
                 pygame.display.update()
