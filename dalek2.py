@@ -33,10 +33,10 @@ class Dalek2:
         self.x += self.vx
 
         "движение вдоль оси у"
-        if self.y <= 0.12 * HEIGHT:
+        if self.y <= 0.05 * HEIGHT:
             self.vy = -self.vy
 
-        if self.y >= 0.83 * HEIGHT:
+        if self.y >= 0.9 * HEIGHT - 20:
             self.vy = -self.vy
         self.y += self.vy
 
