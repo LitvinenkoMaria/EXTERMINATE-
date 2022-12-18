@@ -10,7 +10,7 @@ class Tardis:
     """
     def __init__(self, screen):
         """
-        задаем координаты, состояние (alive) у тардис;
+        задаем координаты (x, y),скорость v, состояние (alive) у тардис;
         тардис рисуем на экране screen.
         """
 
@@ -18,6 +18,7 @@ class Tardis:
         self.screen = screen
         self.x = 330
         self.y = 370
+        self.v = 15
 
     def draw(self, scale_tardis):
         """
@@ -68,16 +69,16 @@ class Tardis:
              [self.x + round(25 * k), self.y + round(20 * k)],
              [self.x + round(25 * k), self.y + round(85 * k)], round(2 * k))
 
-    def move(self):
+    def move(self, HEIGHT, WIDTH):
         """.
         Движение происходит с помощью стрелочек вверх, вниз, вправо, влево.
         """
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_UP] and self.y >= 30:
-            self.y -= 15
-        if keys[pygame.K_DOWN] and self.y <= 490:
-            self.y += 15
-        if keys[pygame.K_RIGHT] and self.x <= 600:
-            self.x += 15
-        if keys[pygame.K_LEFT] and self.x >= 150:
-            self.x -= 15
+        if keys[pygame.K_UP] and self.y >= 0.05 * HEIGHT:
+            self.y -= self.v
+        if keys[pygame.K_DOWN] and self.y <= 0.82 * HEIGHT:
+            self.y += self.v
+        if keys[pygame.K_RIGHT] and self.x <= 0.75 * WIDTH:
+            self.x += self.v
+        if keys[pygame.K_LEFT] and self.x >= 0.19 * WIDTH:
+            self.x -= self.v
