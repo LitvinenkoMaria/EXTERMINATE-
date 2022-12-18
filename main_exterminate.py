@@ -21,22 +21,24 @@ down_key_down = False
 left_key_down = False
 right_key_down = False
 
-scale_tardis = 3
+scale_tardis = 1
 
 def display_score(score, level):
     """ Отображает текущий счёт."""
     global all_time
     all_time += 0.03
+    text_x = 0.2 * HEIGHT
+    text_y = 0.04 * WIDTH
     font = pygame.font.SysFont('Comic Sans MS', 26)
     text = font.render('LEVEL ' + str(int(level + 1)) + '', False, WHITE)
-    textpos = text.get_rect(centerx=110, y=25)
+    textpos = text.get_rect(centerx = text_x, y = text_y)
     screen.blit(text, textpos)
     if int(score) >= 1:
         text2 = font.render('Time till portal: ' + str(int(score)) + '', False, WHITE)
 
     else:
         text2 = font.render('Run to the portal!', False, WHITE)
-    textpos2 = text2.get_rect(centerx=110, y=55)
+    textpos2 = text2.get_rect(centerx = text_x, y = 2 * text_y)
     screen.blit(text2, textpos2)
 
 
