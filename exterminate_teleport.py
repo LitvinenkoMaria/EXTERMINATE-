@@ -10,6 +10,7 @@ class Teleport:
     def draw(self, scale_tardis, screen):
         k = scale_tardis
         tel_image = pygame.image.load('portal5.jpg')
-        tel_image = pygame.transform.scale(tel_image, (120 * k, 120 * k))
+        tel_size = 120
+        tel_image = pygame.transform.scale(tel_image, (tel_size * k, tel_size * k))
         tel_image.set_colorkey(BLACK)
         screen.blit(tel_image, (self.x, self.y))
