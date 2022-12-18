@@ -1,0 +1,13 @@
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+GREY = (170, 170, 180)
+BLUE = (34, 70, 185)
+YELLOW = (255, 255, 0)
+SeaGreen4 = (46, 139, 87)
+SeaGreen1 = (84, 255, 159)
+SeaGreen3 = (67, 205, 128)
+SlateGray4 = (108, 123, 139)  # самый тёмный
+LightSteelBlue3 = (162, 181, 205)
+LightSteelBlue2 = (188, 210, 238)
+LightSteelBlue1 = (202, 225, 255)  # самый светлый
