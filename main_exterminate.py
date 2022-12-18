@@ -21,7 +21,7 @@ down_key_down = False
 left_key_down = False
 right_key_down = False
 
-scale_tardis = 2
+scale_tardis = 1
 
 def display_score(score, level):
     """ Отображает текущий счёт."""
@@ -104,7 +104,7 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
             tardis.draw(scale_tardis)
             display_score(score, level)
             if int(score) <= 0:
-                teleport.draw(screen)
+                teleport.draw(scale_tardis, screen)
                 tardis.draw(scale_tardis)
                 pygame.display.update()
                 if (0 <= (tardis.x - teleport.x) <= 70) and (0 <= (tardis.y - teleport.y) <= 20):

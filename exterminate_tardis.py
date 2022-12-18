@@ -79,7 +79,7 @@ class Tardis:
             self.y -= self.v
         if keys[pygame.K_DOWN] and self.y <= HEIGHT - round(105 * k):
             self.y += self.v
-        if keys[pygame.K_RIGHT] and self.x <= round(WIDTH * 0.75) - 35:
+        if keys[pygame.K_RIGHT] and self.x <= WIDTH * 0.81 - 48 * k:
             self.x += self.v
         if keys[pygame.K_LEFT] and self.x >= 0.19 * WIDTH:
             self.x -= self.v
