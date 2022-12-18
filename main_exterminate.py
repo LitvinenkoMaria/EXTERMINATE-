@@ -21,7 +21,7 @@ down_key_down = False
 left_key_down = False
 right_key_down = False
 
-scale_tardis = 1
+scale_tardis = 2
 
 def display_score(score, level):
     """ Отображает текущий счёт."""
@@ -47,7 +47,7 @@ def display_score(score, level):
 def display_results():
     """ Если бомба попала в тардис, останавливает игру и выводит соответствующую надпись."""
 
-    size_bang = 160 #размер картинки
+    size_bang = 160 * scale_tardis #размер картинки
     bang = pygame.image.load("blow_up.png")
     bang = pygame.transform.scale(bang, (size_bang, size_bang))
     screen.blit(bang, (tardis.x - 25, tardis.y - 35))
@@ -100,7 +100,7 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
             field_x, field_y = 0.16 * WIDTH, 0.008 * HEIGHT
             field_width, field_height = 0.675 * WIDTH, 0.99 * HEIGHT
             rect(screen, WHITE, (field_x, field_y, field_width, field_height), 2)
-            tardis.move(HEIGHT, WIDTH)
+            tardis.move(HEIGHT, WIDTH, scale_tardis)
             tardis.draw(scale_tardis)
             display_score(score, level)
             if int(score) <= 0:

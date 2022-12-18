@@ -69,16 +69,17 @@ class Tardis:
              [self.x + round(25 * k), self.y + round(20 * k)],
              [self.x + round(25 * k), self.y + round(85 * k)], round(2 * k))
 
-    def move(self, HEIGHT, WIDTH):
+    def move(self, HEIGHT, WIDTH, scale_tardis):
         """.
         Движение происходит с помощью стрелочек вверх, вниз, вправо, влево.
         """
+        k = scale_tardis
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP] and self.y >= 0.05 * HEIGHT:
             self.y -= self.v
-        if keys[pygame.K_DOWN] and self.y <= 0.82 * HEIGHT:
+        if keys[pygame.K_DOWN] and self.y <= HEIGHT - round(105 * k):
             self.y += self.v
-        if keys[pygame.K_RIGHT] and self.x <= 0.75 * WIDTH:
+        if keys[pygame.K_RIGHT] and self.x <= round(WIDTH * 0.75) - 35:
             self.x += self.v
         if keys[pygame.K_LEFT] and self.x >= 0.19 * WIDTH:
             self.x -= self.v
