@@ -76,8 +76,8 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
     time_passed = 0
     left_daleks = []
     right_daleks = []
-    x_left_dalek = 100
-    x_right_dalek = 750
+    x_left_dalek = 0.125 * WIDTH
+    x_right_dalek = 0.94 * WIDTH
     for i in range(number_l_daleks):
         dalek = Dalek(screen, x_left_dalek)
         left_daleks.append(dalek)
@@ -100,7 +100,7 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
             field_x, field_y = 0.16 * WIDTH, 0.008 * HEIGHT
             field_width, field_height = 0.675 * WIDTH, 0.99 * HEIGHT
             rect(screen, WHITE, (field_x, field_y, field_width, field_height), 2)
-            tardis.move()
+            tardis.move(HEIGHT, WIDTH)
             tardis.draw(scale_tardis)
             display_score(score, level)
             if int(score) <= 0:
