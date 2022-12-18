@@ -124,12 +124,12 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks):
             for dalek in left_daleks:
                 if time_passed >= 1:
                     dalek.spawn_bomb(bombs1)
-                dalek.move()
+                dalek.move(HEIGHT)
                 dalek.draw()
             for dalek in right_daleks:
                 if time_passed >= 1:
                     dalek.spawn_bomb(bombs2)
-                dalek.move()
+                dalek.move(HEIGHT)
                 dalek.draw()
             for bomb in bombs1:
                 bomb.hit_tardis(score, tardis, scale_tardis)

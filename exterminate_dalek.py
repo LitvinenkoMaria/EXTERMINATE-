@@ -23,8 +23,8 @@ class Dalek:
         self.vx = rnd(3, 5) * choice([-1, 1])
         self.vy = rnd(7, 9)
 
-    def move(self):
-        "дрожание далека"
+    def move(self, HEIGHT):
+        """дрожание далека"""
         if self.y >= 70:
             self.vx = -self.vx
         else:
@@ -32,10 +32,10 @@ class Dalek:
         self.x += self.vx
 
         "движение вдоль оси у"
-        if self.y <= 70:
+        if self.y <= 0.12 * HEIGHT:
             self.vy = -self.vy
 
-        if self.y >= 500:
+        if self.y >= 0.83 * HEIGHT:
             self.vy = -self.vy
         self.y += self.vy
 
@@ -88,7 +88,7 @@ class Dalek:
 
     def spawn_bomb(self, bombs1):
         """
-        Далек каждый тик может сбросить бомбу с вероятностью примерно 3%
+        Далек каждый тик может сбросить бомбу с вероятностью 2%
         bombs1 - массив, в котором будут содержаться все бомбы, выпускаемые далеком.
         """
         if not rnd(0, 50):
