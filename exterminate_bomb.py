@@ -39,9 +39,10 @@ class Bomb:
         if score <= 5:
             draw.circle(self.screen, self.color, (self.x, self.y), self.r, 0)
 
-    def hit_tardis(self, score, obj):
+    def hit_tardis(self, score, obj, scale_tardis):
         """
         Проверяет, столкнулась ли бомба с тардис.
         """
-        if score <= 5 and abs(self.x - obj.x) < 14 and (obj.y <= self.y and (obj.y + 95) >= self.y):
+        k = scale_tardis
+        if score <= 5 and abs(self.x - obj.x) < round(14 * k) and (obj.y <= self.y) and (obj.y + round(95 * k)) >= self.y:
             obj.alive = False

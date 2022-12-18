@@ -19,11 +19,11 @@ class Tardis:
         self.x = 330
         self.y = 370
 
-    def draw(self):
+    def draw(self, scale_tardis):
         """
         Рисует Тардис на экране screen
         """
-        k = 1 #коэффициент пропорциональности; если его менять, можно менять размер всей Тардис
+        k = scale_tardis  #коэффициент пропорциональности; если его менять, можно менять размер всей Тардис
 
         my_font = pygame.font.SysFont('Comic Sans MS', round(7 * k))
         text = my_font.render('Police box', False, WHITE)

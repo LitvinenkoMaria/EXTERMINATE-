@@ -20,7 +20,7 @@ up_key_down = False
 down_key_down = False
 left_key_down = False
 right_key_down = False
-
+scale_tardis = 1
 
 def display_score(score, level):
     """ Отображает текущий счёт."""
@@ -91,11 +91,11 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
             screen.blit(space, (0, 0))
             rect(screen, WHITE, (130, 5, 540, 595), 2)
             tardis.move()
-            tardis.draw()
+            tardis.draw(scale_tardis)
             display_score(score, level)
             if int(score) <= 0:
                 teleport.draw(screen)
-                tardis.draw()
+                tardis.draw(scale_tardis)
                 pygame.display.update()
                 if (0 <= (tardis.x - teleport.x) <= 70) and (0 <= (tardis.y - teleport.y) <= 20):
                     rect(screen, WHITE, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100))
@@ -119,11 +119,11 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
                 dalek.move()
                 dalek.draw()
             for bomb in bombs1:
-                bomb.hit_tardis(score, tardis)
+                bomb.hit_tardis(score, tardis, scale_tardis)
                 bomb.move_right()
                 bomb.draw(score)
             for bomb in bombs2:
-                bomb.hit_tardis(score, tardis)
+                bomb.hit_tardis(score, tardis, scale_tardis)
                 bomb.move_left()
                 bomb.draw(score)
             pygame.display.update()
