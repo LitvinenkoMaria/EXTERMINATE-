@@ -56,19 +56,20 @@ def display_results():
     rect(screen, BLACK, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100), 2)
     font = pygame.font.SysFont('Verdana', 22)
     text = font.render('Your TARDIS died. You have survived for ' + str(int(all_time)) + ' seconds.', True,
-                       (10, 10, 10))
+                       BLACK)
     textpos = text.get_rect(centerx=WIDTH / 2, y=HEIGHT / 2)
     screen.blit(text, textpos)
 def coordinates_teleport(tard):
     """
     Координаты портала задаем взависимости от того, где находится тардис
     """
-    tel = random.randint(100, 500)
-    if abs(tel - tard) <= 65:
-        tel = 500 - tard
+    k = min(HEIGHT, WIDTH)
+    tel = random.randint(int(0.3 * k), int(0.7 * k))
+    if abs(tel - tard) <= 0.1 * k:
+        tel = 0.9 * k - tard
     return tel
 
-def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, tel_y):
+def new_level(tardis, level, finished, number_l_daleks, number_r_daleks):
     """
     Новый уровень
     """
@@ -187,7 +188,7 @@ number_r_daleks = 0
 number_l_daleks = 1
 
 for level in range(level_number):
-    new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, tel_y)
+    new_level(tardis, level, finished, number_l_daleks, number_r_daleks)
     number_l_daleks += level % 2
     number_r_daleks += (level + 1) % 2
 pygame.quit()
