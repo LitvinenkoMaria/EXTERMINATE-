@@ -91,7 +91,7 @@ class Dalek:
         Далек каждый тик может сбросить бомбу с вероятностью примерно 3%
         bombs1 - массив, в котором будут содержаться все бомбы, выпускаемые далеком.
         """
-        if not rnd(0, 100):
+        if not rnd(0, 50):
             new_bomb = Bomb(self.screen)
             new_bomb.x = self.x
             new_bomb.y = self.y
