@@ -20,7 +20,8 @@ up_key_down = False
 down_key_down = False
 left_key_down = False
 right_key_down = False
-scale_tardis = 1
+
+scale_tardis = 3
 
 def display_score(score, level):
     """ Отображает текущий счёт."""
@@ -46,6 +47,7 @@ def display_results():
     bang = pygame.image.load("blow_up.png")
     bang = pygame.transform.scale(bang, (size_bang, size_bang))
     screen.blit(bang, (tardis.x - 25, tardis.y - 35))
+
     rect(screen, WHITE, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100))
     rect(screen, BLACK, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100), 2)
     font = pygame.font.SysFont('Verdana', 22)
@@ -89,7 +91,9 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
             score -= 0.03
             space = pygame.image.load('SpaceBackGround.bmp')
             screen.blit(space, (0, 0))
-            rect(screen, WHITE, (130, 5, 540, 595), 2)
+            field_x, field_y = 130, 5
+            field_width, field_height = 0.675 * WIDTH, 0.99 * HEIGHT
+            rect(screen, WHITE, (field_x, field_y, field_width, field_height), 2)
             tardis.move()
             tardis.draw(scale_tardis)
             display_score(score, level)
@@ -108,14 +112,14 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
                     score = 0
                     first_level_passed = True
                     pygame.display.update()
-                    time.sleep(1)
+                    time.sleep(1.5)
                     finished = True
             for dalek in left_daleks:
-                dalek.spawn_bomb(score, bombs1)
+                dalek.spawn_bomb(bombs1)
                 dalek.move()
                 dalek.draw()
             for dalek in right_daleks:
-                dalek.spawn_bomb(score, bombs2)
+                dalek.spawn_bomb(bombs2)
                 dalek.move()
                 dalek.draw()
             for bomb in bombs1:
