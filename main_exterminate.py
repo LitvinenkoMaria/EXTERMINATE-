@@ -13,7 +13,7 @@ from exterminate_teleport import Teleport
 
 
 FPS = 30
-WIDTH = 800
+WIDTH = 1000
 HEIGHT = 600
 
 up_key_down = False
@@ -27,17 +27,19 @@ def display_score(score, level):
     """ Отображает текущий счёт."""
     global all_time
     all_time += 0.03
+
     text_x = 0.2 * HEIGHT
     text_y = 0.04 * WIDTH
     font = pygame.font.SysFont('Comic Sans MS', 26)
-    text = font.render('LEVEL ' + str(int(level + 1)) + '', False, WHITE)
+    text = font.render('LEVEL ' + str(int(level + 1)) + '', False, RED)
     textpos = text.get_rect(centerx = text_x, y = text_y)
     screen.blit(text, textpos)
+
     if int(score) >= 1:
         text2 = font.render('Time till portal: ' + str(int(score)) + '', False, WHITE)
 
     else:
-        text2 = font.render('Run to the portal!', False, WHITE)
+        text2 = font.render('Run to the portal!', False, RED)
     textpos2 = text2.get_rect(centerx = text_x, y = 2 * text_y)
     screen.blit(text2, textpos2)
 
@@ -71,6 +73,7 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
     Новый уровень
     """
     score = 8
+    time_passed = 0
     left_daleks = []
     right_daleks = []
     x_left_dalek = 100
@@ -91,9 +94,10 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
             pygame.display.update()
         else:
             score -= 0.03
+            time_passed += 0.03
             space = pygame.image.load('SpaceBackGround.bmp')
             screen.blit(space, (0, 0))
-            field_x, field_y = 130, 5
+            field_x, field_y = 0.16 * WIDTH, 0.008 * HEIGHT
             field_width, field_height = 0.675 * WIDTH, 0.99 * HEIGHT
             rect(screen, WHITE, (field_x, field_y, field_width, field_height), 2)
             tardis.move()
@@ -117,11 +121,13 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks, tel_x, 
                     time.sleep(1.5)
                     finished = True
             for dalek in left_daleks:
-                dalek.spawn_bomb(bombs1)
+                if time_passed >= 1:
+                    dalek.spawn_bomb(bombs1)
                 dalek.move()
                 dalek.draw()
             for dalek in right_daleks:
-                dalek.spawn_bomb(bombs2)
+                if time_passed >= 1:
+                    dalek.spawn_bomb(bombs2)
                 dalek.move()
                 dalek.draw()
             for bomb in bombs1:
