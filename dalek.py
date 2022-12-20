@@ -45,7 +45,7 @@ class Dalek:
         """
         Рисует далека на экране screen.
         """
-        k = 1 #коэффициент пропорциональности; если его менять, можно менять размер всего далека
+        k = 1  # коэффициент пропорциональности; если его менять, можно менять размер всего далека
         arc(self.screen, LightSteelBlue1,
             (self.x - round(52 * k), self.y - round(10 * k), round(30 * k), round(30 * k)),
             0, pi, round(2 * k))
@@ -69,20 +69,25 @@ class Dalek:
             (self.x, self.y - round(2 * k), round(7 * k), round(7 * k)),
             0.5 * pi, 1.5 * pi, round(10 * k))
         rect(self.screen, SlateGray4, (self.x - round(47 * k), self.y + round(7 * k), round(20 * k), round(7 * k)))
-        rect(self.screen, LightSteelBlue1, (self.x - round(52 * k), self.y + round(14 * k), round(30 * k), round(3 * k)))
+        rect(self.screen, LightSteelBlue1,
+             (self.x - round(52 * k), self.y + round(14 * k), round(30 * k), round(3 * k)))
         rect(self.screen, SlateGray4, (self.x - round(47 * k), self.y + round(7 * k), round(20 * k), round(7 * k)))
-        rect(self.screen, LightSteelBlue1, (self.x - round(52 * k), self.y + round(14 * k), round(30 * k), round(3 * k)))
+        rect(self.screen, LightSteelBlue1,
+             (self.x - round(52 * k), self.y + round(14 * k), round(30 * k), round(3 * k)))
         rect(self.screen, SlateGray4, (self.x - round(47 * k), self.y + round(17 * k), round(20 * k), round(4 * k)))
-        rect(self.screen, LightSteelBlue1, (self.x - round(52 * k), self.y + round(20 * k), round(30 * k), round(3 * k)))
+        rect(self.screen, LightSteelBlue1,
+             (self.x - round(52 * k), self.y + round(20 * k), round(30 * k), round(3 * k)))
         polygon(self.screen, LightSteelBlue3,
                 [[self.x - round(47 * k), self.y + round(24 * k)], [self.x - round(27 * k), self.y + round(24 * k)],
                  [self.x - round(10 * k), self.y + round(65 * k)], [self.x - round(52 * k), self.y + round(65 * k)]])
         rect(self.screen, SlateGray4, (self.x - round(57 * k), self.y + round(65 * k), round(53 * k), round(12 * k)))
         circle(self.screen, SlateGray4,
                (self.x - round(20 * k), self.y + round(35 * k)), round(5 * k))
-        line(self.screen, LightSteelBlue1, [self.x - round(15 * k), self.y + round(35 * k)], [self.x + round(15 * k), self.y + round(35 * k)], round(2 * k))
+        line(self.screen, LightSteelBlue1, [self.x - round(15 * k), self.y + round(35 * k)],
+             [self.x + round(15 * k), self.y + round(35 * k)], round(2 * k))
         rect(self.screen, LightSteelBlue1, (self.x + round(15 * k), self.y + round(31 * k), round(4 * k), round(7 * k)))
-        rect(self.screen, LightSteelBlue1, (self.x - round(57 * k), self.y + round(77 * k), round(52 * k), round(2 * k)))
+        rect(self.screen, LightSteelBlue1,
+             (self.x - round(57 * k), self.y + round(77 * k), round(52 * k), round(2 * k)))
         circle(self.screen, SlateGray4,
                (self.x - round(35 * k), self.y + round(41 * k)), round(5 * k))
         circle(self.screen, SlateGray4,

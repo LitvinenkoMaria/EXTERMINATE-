@@ -4,6 +4,7 @@ from colors import *
 
 WIDTH = 800
 
+
 class Bomb:
     def __init__(self, screen):
         """
@@ -30,7 +31,6 @@ class Bomb:
         """
         global bombs2, WIDTH
         self.x -= self.vx
-
 
     def draw(self, score):
         """

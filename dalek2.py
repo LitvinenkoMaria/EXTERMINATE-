@@ -11,6 +11,7 @@ from colors import *
 
 WIDTH = 800
 
+
 class Dalek2:
     """далек выпускает бомбы на тардис; далек может летать снизу вверх"""
 
@@ -65,25 +66,31 @@ class Dalek2:
         arc(self.screen, LightSteelBlue1,
             (self.x - round(52 * k), self.y - round(10 * k), round(24 * k), round(30 * k)),
             0, pi, round(3 * k))
-        line(self.screen, LightSteelBlue1, [self.x - round(70 * k), self.y], [self.x - round(35 * k), self.y], round(2 * k))
+        line(self.screen, LightSteelBlue1, [self.x - round(70 * k), self.y], [self.x - round(35 * k), self.y],
+             round(2 * k))
         arc(self.screen, LightSteelBlue3,
             (self.x - round(75 * k), self.y - round(3 * k), round(7 * k), round(7 * k)),
             1.5 * pi, 0 * pi, round(10 * k))
         rect(self.screen, SlateGray4, (self.x - round(47 * k), self.y + round(7 * k), round(20 * k), round(7 * k)))
-        rect(self.screen, LightSteelBlue1, (self.x - round(52 * k), self.y + round(14 * k), round(30 * k), round(3 * k)))
+        rect(self.screen, LightSteelBlue1,
+             (self.x - round(52 * k), self.y + round(14 * k), round(30 * k), round(3 * k)))
         rect(self.screen, SlateGray4, (self.x - round(47 * k), self.y + round(7 * k), round(20 * k), round(7 * k)))
-        rect(self.screen, LightSteelBlue1, (self.x - round(52 * k), self.y + round(14 * k), round(30 * k), round(3 * k)))
+        rect(self.screen, LightSteelBlue1,
+             (self.x - round(52 * k), self.y + round(14 * k), round(30 * k), round(3 * k)))
         rect(self.screen, SlateGray4, (self.x - round(47 * k), self.y + round(17 * k), round(20 * k), round(4 * k)))
-        rect(self.screen, LightSteelBlue1, (self.x - round(52 * k), self.y + round(20 * k), round(30 * k), round(3 * k)))
+        rect(self.screen, LightSteelBlue1,
+             (self.x - round(52 * k), self.y + round(20 * k), round(30 * k), round(3 * k)))
         polygon(self.screen, LightSteelBlue3,
                 [[self.x - round(27 * k), self.y + round(24 * k)], [self.x - round(47 * k), self.y + round(24 * k)],
                  [self.x - round(65 * k), self.y + round(65 * k)], [self.x - round(22 * k), self.y + round(65 * k)]])
         rect(self.screen, SlateGray4, (self.x - round(70 * k), self.y + round(65 * k), round(53 * k), round(12 * k)))
         circle(self.screen, SlateGray4,
                (self.x - round(50 * k), self.y + round(35 * k)), round(5 * k))
-        line(self.screen, LightSteelBlue1, [self.x - round(55 * k), self.y + round(35 * k)], [self.x - round(80 * k), self.y + round(35 * k)], round(2 * k))
+        line(self.screen, LightSteelBlue1, [self.x - round(55 * k), self.y + round(35 * k)],
+             [self.x - round(80 * k), self.y + round(35 * k)], round(2 * k))
         rect(self.screen, LightSteelBlue1, (self.x - round(80 * k), self.y + round(31 * k), round(4 * k), round(7 * k)))
-        rect(self.screen, LightSteelBlue1, (self.x - round(70 * k), self.y + round(77 * k), round(52 * k), round(2 * k)))
+        rect(self.screen, LightSteelBlue1,
+             (self.x - round(70 * k), self.y + round(77 * k), round(52 * k), round(2 * k)))
         circle(self.screen, SlateGray4,
                (self.x - round(35 * k), self.y + round(41 * k)), round(5 * k))
         circle(self.screen, SlateGray4,

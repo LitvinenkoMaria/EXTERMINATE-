@@ -11,7 +11,6 @@ from dalek2 import Dalek2
 from tardis import Tardis
 from teleport import Teleport
 
-
 FPS = 30
 WIDTH = 1540
 HEIGHT = 800
@@ -21,7 +20,8 @@ down_key_down = False
 left_key_down = False
 right_key_down = False
 
-scale_tardis = 1
+scale_tardis = 2
+
 
 def display_score(score, level):
     """ Отображает текущий счёт."""
@@ -32,7 +32,7 @@ def display_score(score, level):
     text_y = 0.04 * WIDTH
     font = pygame.font.SysFont('Comic Sans MS', 26)
     text = font.render('LEVEL ' + str(int(level + 1)) + '', False, RED)
-    textpos = text.get_rect(centerx = text_x, y = text_y)
+    textpos = text.get_rect(centerx=text_x, y=text_y)
     screen.blit(text, textpos)
 
     if int(score) >= 1:
@@ -40,14 +40,14 @@ def display_score(score, level):
 
     else:
         text2 = font.render('Run to the portal!', False, RED)
-    textpos2 = text2.get_rect(centerx = text_x, y = 2 * text_y)
+    textpos2 = text2.get_rect(centerx=text_x, y=2 * text_y)
     screen.blit(text2, textpos2)
 
 
 def display_results():
     """ Если бомба попала в тардис, останавливает игру и выводит соответствующую надпись."""
 
-    size_bang = 160 * scale_tardis #размер картинки
+    size_bang = 160 * scale_tardis  # размер картинки
     bang = pygame.image.load("blow_up.png")
     bang = pygame.transform.scale(bang, (size_bang, size_bang))
     screen.blit(bang, (tardis.x - 25, tardis.y - 35))
@@ -59,6 +59,7 @@ def display_results():
                        BLACK)
     textpos = text.get_rect(centerx=WIDTH / 2, y=HEIGHT / 2)
     screen.blit(text, textpos)
+
 
 def portal_escape():
     """
@@ -72,6 +73,7 @@ def portal_escape():
     textpos = text.get_rect(centerx=WIDTH / 2, y=HEIGHT / 2)
     screen.blit(text, textpos)
 
+
 def coordinates_teleport(tard):
     """
     Координаты портала задаем взависимости от того, где находится тардис
@@ -82,12 +84,13 @@ def coordinates_teleport(tard):
         tel = 0.9 * k - tard
     return tel
 
+
 def new_level(tardis, level, finished, number_l_daleks, number_r_daleks):
     """
     Новый уровень
     """
     global bombs1, bombs2
-    score = 8 # время каждого уровня (до появления портала)
+    score = 8  # время каждого уровня (до появления портала)
     time_passed = 0
     left_daleks = []
     right_daleks = []
@@ -124,7 +127,8 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks):
                 teleport.draw(scale_tardis, screen)
                 tardis.draw(scale_tardis)
                 pygame.display.update()
-                if (0 <= (tardis.x - teleport.x) <= 70) and (0 <= (tardis.y - teleport.y) <= 20):
+                if (0 <= (tardis.x - teleport.x) <= 70 * scale_tardis) and (
+                        0 <= (tardis.y - teleport.y) <= 20 * scale_tardis):
                     portal_escape()
                     bombs1 = []
                     bombs2 = []
@@ -194,7 +198,7 @@ finished = False
 
 all_time = 0
 
-level_number = 10 #число уровней
+level_number = 10  # число уровней
 number_r_daleks = 0
 number_l_daleks = 1
 
