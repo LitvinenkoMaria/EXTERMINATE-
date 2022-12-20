@@ -59,6 +59,19 @@ def display_results():
                        BLACK)
     textpos = text.get_rect(centerx=WIDTH / 2, y=HEIGHT / 2)
     screen.blit(text, textpos)
+
+def portal_escape():
+    """
+    Поздравляет игрока с пройденным уровнем.
+    """
+    rect(screen, WHITE, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100))
+    rect(screen, BLACK, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100), 2)
+    font = pygame.font.SysFont('Verdana', 22)
+    text = font.render('Congrats. You have survived for ' + str(int(all_time)) + ' seconds.', True,
+                       BLACK)
+    textpos = text.get_rect(centerx=WIDTH / 2, y=HEIGHT / 2)
+    screen.blit(text, textpos)
+
 def coordinates_teleport(tard):
     """
     Координаты портала задаем взависимости от того, где находится тардис
@@ -73,6 +86,7 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks):
     """
     Новый уровень
     """
+    global bombs1, bombs2
     score = 8
     time_passed = 0
     left_daleks = []
@@ -111,15 +125,10 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks):
                 tardis.draw(scale_tardis)
                 pygame.display.update()
                 if (0 <= (tardis.x - teleport.x) <= 70) and (0 <= (tardis.y - teleport.y) <= 20):
-                    rect(screen, WHITE, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100))
-                    rect(screen, BLACK, (WIDTH / 2 - 350, HEIGHT / 2 - 40, 700, 100), 2)
-                    font = pygame.font.SysFont('Verdana', 22)
-                    text = font.render('Congrats. You have survived for ' + str(int(all_time)) + ' seconds.', True,
-                                       BLACK)
-                    textpos = text.get_rect(centerx=WIDTH / 2, y=HEIGHT / 2)
-                    screen.blit(text, textpos)
+                    portal_escape()
+                    bombs1 = []
+                    bombs2 = []
                     score = 0
-                    first_level_passed = True
                     pygame.display.update()
                     time.sleep(1.5)
                     finished = True
