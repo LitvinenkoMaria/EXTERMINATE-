@@ -2,7 +2,7 @@ import pygame
 
 from math import pi
 from random import choice
-from random import randint as rnd
+from random import randint
 
 from pygame.draw import arc, line, rect, polygon, circle
 
@@ -21,9 +21,9 @@ class Dalek:
         """
         self.screen = screen
         self.x = x_dalek
-        self.y = rnd(69, 500)
-        self.vx = rnd(3, 5) * choice([-1, 1])
-        self.vy = rnd(7, 9)
+        self.y = randint(69, 500)
+        self.vx = randint(3, 5) * choice([-1, 1])
+        self.vy = randint(7, 9)
 
     def move(self, HEIGHT):
         """дрожание далека"""
@@ -98,7 +98,7 @@ class Dalek:
         Далек каждый тик может сбросить бомбу с вероятностью 2%
         bombs1 - массив, в котором будут содержаться все бомбы, выпускаемые далеком.
         """
-        if not rnd(0, 50):
+        if not randint(0, 50):
             sound1 = pygame.mixer.Sound('piu.wav')
             sound1.play()
             new_bomb = Bomb(self.screen)
