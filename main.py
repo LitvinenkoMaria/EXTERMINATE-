@@ -3,7 +3,7 @@ import random
 import pygame
 import sys
 
-from pygame.draw import *
+from pygame.draw import rect
 
 from colors import *
 from dalek import Dalek
@@ -20,7 +20,7 @@ down_key_down = False
 left_key_down = False
 right_key_down = False
 
-scale_tardis = 2
+scale_tardis = 1
 
 
 def display_score(score, level):
