@@ -13,8 +13,8 @@ from teleport import Teleport
 
 
 FPS = 30
-WIDTH = 1000
-HEIGHT = 600
+WIDTH = 1540
+HEIGHT = 800
 
 up_key_down = False
 down_key_down = False
@@ -87,7 +87,7 @@ def new_level(tardis, level, finished, number_l_daleks, number_r_daleks):
     Новый уровень
     """
     global bombs1, bombs2
-    score = 8
+    score = 8 # время каждого уровня (до появления портала)
     time_passed = 0
     left_daleks = []
     right_daleks = []
@@ -194,7 +194,7 @@ finished = False
 
 all_time = 0
 
-level_number = 5 #число уровней
+level_number = 10 #число уровней
 number_r_daleks = 0
 number_l_daleks = 1
 
